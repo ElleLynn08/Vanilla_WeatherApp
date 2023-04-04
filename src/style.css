@@ -1,12 +1,42 @@
+body {
+  background-color: #08086b;
+  color: #ffffff;
+}
+
+.container {
+  font-family: "Poppins", sans-serif;
+  padding-top: 30px;
+}
+.weather-app {
+  border: 1px solid #dedde1;
+  border-radius: 10px;
+  margin: 0 auto;
+  max-width: 450px;
+  padding: 15px;
+}
 .day-time {
-  color: blue;
+  padding-top: 62px;
   text-align: center;
 }
 .city-temp {
-  color: blueviolet;
   text-align: center;
 }
-.icon-data {
-  color: red;
+.weather-data {
+  padding-top: 62px;
+  text-align: center;
+}
+.cityName {
+  font-size: 20px;
+}
+.temp {
+  font-size: 20px;
+}
+.icon {
+  font-size: 60px;
+  padding-bottom: 0;
+}
+
+footer {
+  padding: 20px;
   text-align: center;
 }

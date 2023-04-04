@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="src/style.css" />
+
     <title>Weather App</title>
     <link
       rel="stylesheet"
@@ -21,47 +21,42 @@
       integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
       crossorigin="anonymous"
     ></script>
+    <link rel="stylesheet" href="src/style.css" />
   </head>
   <body>
     <div class="container">
       <div class="weather-app">
         <div class="row">
           <div class="col day-time">
-            <ul>
-              <li>Tuesday</li>
-              <li>4 April 2023</li>
-              <li>Time: 14:00</li>
-            </ul>
+            <div class="day">Tuesday</div>
+            <div class="date">4 April 2023</div>
+            <div class="time">Time: 14:00</div>
           </div>
 
           <div class="col city-temp">
-            <ul>
-              <li>Port Orchard</li>
-              <li>68 ℉ | ℃</li>
-              <li>H:68° L:40°</li>
-              <li>☀️</li>
-              <li>sunny</li>
-            </ul>
+            <div class="cityName">Port Orchard</div>
+            <div class="temp">68 ℉ | ℃</div>
+            <div class="highLow">H: 68° L: 40°</div>
+            <div class="icon">☀️</div>
+            <div class="description">sunny</div>
           </div>
 
-          <div class="col icon-data">
-            <ul>
-              <li>Feels like: 68°</li>
+          <div class="col weather-data">
+            <div class="feelsLike">Feels like: 68°</div>
 
-              <li>Wind:1 mph</li>
-              <li>Humidity:40%</li>
-            </ul>
+            <div class="windSpeed">Wind: 1 mph</div>
+            <div class="humitity">Humidity: 40%</div>
           </div>
         </div>
-        <small>
-          <a
-            href="https://github.com/MFindley08/Vanilla_WeatherApp"
-            target="_blank"
-            >Open-source code</a
-          >
-          by Michelle Findley
-        </small>
       </div>
+      <footer>
+        <a
+          href="https://github.com/MFindley08/Vanilla_WeatherApp"
+          target="_blank"
+          >Open-source code</a
+        >
+        by Michelle Findley
+      </footer>
     </div>
     <script src="src/app.js"></script>
   </body>
