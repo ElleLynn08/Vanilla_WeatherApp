@@ -1,3 +1,12 @@
-h1 {
+.day-time {
   color: blue;
+  text-align: center;
+}
+.city-temp {
+  color: blueviolet;
+  text-align: center;
+}
+.icon-data {
+  color: red;
+  text-align: center;
 }
