@@ -2,6 +2,10 @@ body {
   background-color: #08086b;
   color: #ffffff;
 }
+footer {
+  padding: 20px;
+  text-align: center;
+}
 
 .container {
   font-family: "Poppins", sans-serif;
@@ -15,28 +19,38 @@ body {
   padding: 15px;
 }
 .day-time {
-  padding-top: 62px;
+  padding-top: 75px;
   text-align: center;
 }
 .city-temp {
   text-align: center;
 }
 .weather-data {
-  padding-top: 62px;
+  padding-top: 75px;
   text-align: center;
 }
 .cityName {
-  font-size: 20px;
+  font-size: 25px;
+  font-weight: bolder;
 }
 .temp {
-  font-size: 20px;
+  font-size: 27px;
 }
-.icon {
-  font-size: 60px;
-  padding-bottom: 0;
+.units {
+  font-size: 14px;
+  position: relative;
+  top: -8px;
+}
+.highLow {
+  padding-bottom: 10px;
 }
 
-footer {
-  padding: 20px;
-  text-align: center;
+.icon {
+  font-size: 60px;
+  line-height: 1;
+  padding-bottom: 5px;
+}
+.description {
+  font-size: 14px;
+  line-height: 1;
 }
