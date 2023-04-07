@@ -21,10 +21,11 @@ function displayTemperature(response) {
     "src",
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
+  iconElement.setAttribute("alt", response.data.condition.description);
 }
 
 let apiKey = "c33d4a80d9533a8t8944b0aef1f6cbo2";
-let city = "Tokyo";
+let city = "Seattle";
 let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
 
 axios.get(apiUrl).then(displayTemperature);
