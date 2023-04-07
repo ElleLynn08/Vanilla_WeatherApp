@@ -21,6 +21,7 @@
       integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
       crossorigin="anonymous"
     ></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/style.css" />
   </head>
   <body>
@@ -34,20 +35,20 @@
           </div>
 
           <div class="col-5 city-temp">
-            <div class="cityName">Port Orchard</div>
-            <div class="temp">
-              68<span class="units">℉ | <a href="#">℃ </a></span>
-            </div>
-            <div class="icon">☀️</div>
-            <div class="description">sunny</div>
-            <div class="highLow">H: 68° L: 40°</div>
+            <div class="cityName" id="city"></div>
+            <div class="temp" id="temperature"></div>
+            <span class="units" id="units">F | <a href="#">C </a></span>
+
+            <div class="icon" id="icon"></div>
+            <div class="description" id="description"></div>
+            <div class="highLow" id="highLow"></div>
           </div>
 
           <div class="col weather-data">
-            <div class="feelsLike">Feels like: 68°</div>
+            <div class="feelsLike" id="feelsLike"></div>
 
-            <div class="windSpeed">Wind: 1 mph</div>
-            <div class="humitity">Humidity: 40%</div>
+            <div class="windSpeed" id="windSpeed"></div>
+            <div class="humidity" id="humidity"></div>
           </div>
         </div>
       </div>
