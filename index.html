@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Weather App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=PT+Mono&family=Poppins&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
@@ -25,6 +31,26 @@
     <link rel="stylesheet" href="src/style.css" />
   </head>
   <body>
+    <nav class="navbar navbar-light bg-light justify-content-xlg-around">
+      <a class="navbar-brand"
+        ><h1>In The Air</h1>
+        <h2>5 Day Weather Forecast</h2></a
+      >
+      <form class="form-inline">
+        <input
+          class="form-control"
+          type="search"
+          placeholder="Enter a city. . . "
+          aria-label="Search"
+        />
+        <button class="btn btn-primary my-2 my-sm-0" type="submit">
+          Search
+        </button>
+        <button class="btn btn-info my-2 my-sm-0" type="submit">
+          Current Location
+        </button>
+      </form>
+    </nav>
     <div class="container">
       <div class="weather-app">
         <div class="row">

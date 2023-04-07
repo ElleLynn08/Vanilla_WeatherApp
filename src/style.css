@@ -2,11 +2,23 @@ body {
   background-color: #08086b;
   color: #ffffff;
 }
+
 footer {
   padding: 20px;
   text-align: center;
 }
-
+h1 {
+  font-family: "Indie Flower", cursive;
+  font-size: 50px;
+  margin-bottom: 0;
+}
+h2 {
+  font-family: "Indie Flower", cursive;
+  font-size: 17px;
+  margin-top: 0;
+  margin-bottom: 40px;
+  padding-left: 10px;
+}
 .container {
   font-family: "Poppins", sans-serif;
   padding-top: 30px;
