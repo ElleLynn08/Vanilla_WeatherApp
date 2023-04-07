@@ -15,10 +15,16 @@ function displayTemperature(response) {
   let humidityElement = document.querySelector("#humidity");
   humidityElement = Math.round(response.data.temperature.humidity);
   humidity.innerHTML = `Humidity: ${humidityElement}%`;
+
+  let iconElement = document.querySelector("#weatherIcon");
+  iconElement.setAttribute(
+    "src",
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
+  );
 }
 
 let apiKey = "c33d4a80d9533a8t8944b0aef1f6cbo2";
-let city = "Seattle";
+let city = "Tokyo";
 let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
 
 axios.get(apiUrl).then(displayTemperature);
