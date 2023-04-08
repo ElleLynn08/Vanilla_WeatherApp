@@ -24,11 +24,13 @@ function displayTemperature(response) {
   iconElement.setAttribute("alt", response.data.condition.description);
 }
 
-let apiKey = "c33d4a80d9533a8t8944b0aef1f6cbo2";
-let city = "Seattle";
-let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
+function search(city) {
+  let apiKey = "c33d4a80d9533a8t8944b0aef1f6cbo2";
 
-axios.get(apiUrl).then(displayTemperature);
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
+
+  axios.get(apiUrl).then(displayTemperature);
+}
 
 //  let highLow = document.querySelector("#highLow");
 //let highElement = Math.round(response.data.temperature.maximum);
@@ -80,3 +82,12 @@ let month = months[now.getMonth()];
 currentDate.innerHTML = `${day} </br> 
 ${date} ${month} ${year} </br>
 Time: ${hours}:${minutes}`;
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
+}
+search("Seattle");
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
