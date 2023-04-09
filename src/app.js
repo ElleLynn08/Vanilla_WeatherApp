@@ -8,18 +8,6 @@ function handleSubmit(event) {
   let cityInputElement = document.querySelector("#city-input");
   search(cityInputElement.value);
 }
-function displayLocation(position) {
-  let apiKey = "c33d4a80d9533a8t8944b0aef1f6cbo2";
-  let latitude = position.coords.latitude;
-  let longitude = position.coords.longitude;
-  let url = `https://api.shecodes.io/weather/v1/forecast?lon=${longitude}&lat=${latitude}&key=${apiKey}&units=imperial`;
-  axios.get(url).then(displayTemperature);
-}
-
-function displayGeolocation(event) {
-  event.preventDefault;
-  navigator.geolocation.getCurrentPosition(displayLocation);
-}
 
 function displayTemperature(response) {
   let cityElement = document.querySelector("#city");
@@ -67,6 +55,18 @@ function displayFahrenheitTemperature(event) {
   celsiusLink.classList.remove("active");
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+function displayLocation(position) {
+  let apiKey = "c33d4a80d9533a8t8944b0aef1f6cbo2";
+  let latitude = position.coords.latitude;
+  let longitude = position.coords.longitude;
+  let url = `https://api.shecodes.io/weather/v1/current?lon=${longitude}&lat=${latitude}&key=${apiKey}&units=imperial`;
+  axios.get(url).then(displayTemperature);
+}
+
+function displayGeolocation(event) {
+  event.preventDefault;
+  navigator.geolocation.getCurrentPosition(displayLocation);
 }
 
 let now = new Date();
@@ -130,8 +130,8 @@ button.addEventListener("click", displayGeolocation);
 
 search("Seattle");
 
+// below is in forecast data:
 //  let highLow = document.querySelector("#highLow");
 //let highElement = Math.round(response.data.temperature.maximum);
 //let lowElement = Math.round(response.data.temperature.minimum);
 //highLow.innerHTML = `H: ${highElement}° L: ${lowElement}°`;
-// current date and time
