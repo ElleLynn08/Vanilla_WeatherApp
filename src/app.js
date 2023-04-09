@@ -3,7 +3,7 @@ function displayTemperature(response) {
   cityElement.innerHTML = response.data.city;
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement = Math.round(response.data.temperature.current);
-  temperature.innerHTML = `${temperatureElement}°`;
+  temperature.innerHTML = `${temperatureElement}`;
   let descriptionElement = document.querySelector("#description");
   descriptionElement.innerHTML = response.data.condition.description;
   let feelsLikeElement = document.querySelector("#feelsLike");
@@ -15,6 +15,8 @@ function displayTemperature(response) {
   let humidityElement = document.querySelector("#humidity");
   humidityElement = Math.round(response.data.temperature.humidity);
   humidity.innerHTML = `Humidity: ${humidityElement}%`;
+
+  fahrenheitTemperature = response.data.temperature.current;
 
   let iconElement = document.querySelector("#weatherIcon");
   iconElement.setAttribute(
@@ -88,6 +90,32 @@ function handleSubmit(event) {
   let cityInputElement = document.querySelector("#city-input");
   search(cityInputElement.value);
 }
-search("Seattle");
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  let celsiusTemperature = ((fahrenheitTemperature - 32) * 5) / 9;
+  let temperatureElement = document.querySelector("#temperature");
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  fahrenheitLink.classList.add("active");
+  celsiusLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+let fahrenheitTemperature = null;
+
+let celsiusLink = document.querySelector("#celsiusLink");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+let fahrenheitLink = document.querySelector("#fahrenheitLink");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+search("Seattle");
