@@ -1,17 +1,44 @@
+function search(city) {
+  let apiKey = "c33d4a80d9533a8t8944b0aef1f6cbo2";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
+  axios.get(apiUrl).then(displayTemperature);
+}
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
+}
+function displayLocation(position) {
+  let apiKey = "c33d4a80d9533a8t8944b0aef1f6cbo2";
+  let latitude = position.coords.latitude;
+  let longitude = position.coords.longitude;
+  let url = `https://api.shecodes.io/weather/v1/forecast?lon=${longitude}&lat=${latitude}&key=${apiKey}&units=imperial`;
+  axios.get(url).then(displayTemperature);
+}
+
+function displayGeolocation(event) {
+  event.preventDefault;
+  navigator.geolocation.getCurrentPosition(displayLocation);
+}
+
 function displayTemperature(response) {
   let cityElement = document.querySelector("#city");
   cityElement.innerHTML = response.data.city;
+
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement = Math.round(response.data.temperature.current);
   temperature.innerHTML = `${temperatureElement}`;
+
   let descriptionElement = document.querySelector("#description");
   descriptionElement.innerHTML = response.data.condition.description;
   let feelsLikeElement = document.querySelector("#feelsLike");
   feelsLikeElement = Math.round(response.data.temperature.feels_like);
   feelsLike.innerHTML = `Feels like: ${feelsLikeElement}°`;
+
   let windElement = document.querySelector("#windSpeed");
   windElement = Math.round(response.data.wind.speed);
   windSpeed.innerHTML = `Wind: ${windElement} mph`;
+
   let humidityElement = document.querySelector("#humidity");
   humidityElement = Math.round(response.data.temperature.humidity);
   humidity.innerHTML = `Humidity: ${humidityElement}%`;
@@ -26,19 +53,21 @@ function displayTemperature(response) {
   iconElement.setAttribute("alt", response.data.condition.description);
 }
 
-function search(city) {
-  let apiKey = "c33d4a80d9533a8t8944b0aef1f6cbo2";
-
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
-
-  axios.get(apiUrl).then(displayTemperature);
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  let celsiusTemperature = ((fahrenheitTemperature - 32) * 5) / 9;
+  let temperatureElement = document.querySelector("#temperature");
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
-
-//  let highLow = document.querySelector("#highLow");
-//let highElement = Math.round(response.data.temperature.maximum);
-//let lowElement = Math.round(response.data.temperature.minimum);
-//highLow.innerHTML = `H: ${highElement}° L: ${lowElement}°`;
-// current date and time
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  fahrenheitLink.classList.add("active");
+  celsiusLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
 
 let now = new Date();
 let currentDate = document.querySelector("#currentDate");
@@ -85,30 +114,8 @@ currentDate.innerHTML = `${day} </br>
 ${date} ${month} ${year} </br>
 Time: ${hours}:${minutes}`;
 
-function handleSubmit(event) {
-  event.preventDefault();
-  let cityInputElement = document.querySelector("#city-input");
-  search(cityInputElement.value);
-}
-
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
-
-function displayCelsiusTemperature(event) {
-  event.preventDefault();
-  let celsiusTemperature = ((fahrenheitTemperature - 32) * 5) / 9;
-  let temperatureElement = document.querySelector("#temperature");
-  fahrenheitLink.classList.remove("active");
-  celsiusLink.classList.add("active");
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
-}
-function displayFahrenheitTemperature(event) {
-  event.preventDefault();
-  fahrenheitLink.classList.add("active");
-  celsiusLink.classList.remove("active");
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
-}
 
 let fahrenheitTemperature = null;
 
@@ -118,4 +125,13 @@ celsiusLink.addEventListener("click", displayCelsiusTemperature);
 let fahrenheitLink = document.querySelector("#fahrenheitLink");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
+let button = document.querySelector("#geolocation");
+button.addEventListener("click", displayGeolocation);
+
 search("Seattle");
+
+//  let highLow = document.querySelector("#highLow");
+//let highElement = Math.round(response.data.temperature.maximum);
+//let lowElement = Math.round(response.data.temperature.minimum);
+//highLow.innerHTML = `H: ${highElement}° L: ${lowElement}°`;
+// current date and time
