@@ -8,21 +8,24 @@ footer {
   text-align: center;
 }
 h1 {
-  color: #08086b;
+  color: #ffffff;
   font-family: "Indie Flower", cursive;
   font-size: 65px;
   padding-top: 10px;
+  margin-bottom: 0;
 }
 h2 {
-  color: #08086b;
+  color: #ffffff;
   font-family: "Indie Flower", cursive;
   font-size: 17px;
   margin-top: 0;
   margin-bottom: 40px;
   text-align: center;
 }
+
 .btn-primary {
   background: #08086b;
+  border-color: #ffffff;
 }
 
 .btn-primary:hover,
@@ -38,6 +41,7 @@ h2 {
 
 .btn-info {
   background: #08086b;
+  border-color: #ffffff;
 }
 .btn-info:hover,
 .btn-info:active,
