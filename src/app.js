@@ -63,6 +63,35 @@ function displayLocation(position) {
   let url = `https://api.shecodes.io/weather/v1/current?lon=${longitude}&lat=${latitude}&key=${apiKey}&units=imperial`;
   axios.get(url).then(displayTemperature);
 }
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class = "row">`;
+
+  let days = ["Thursday", "Friday", "Saturday", "Sunday", "Monday"];
+  
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+            <div class="col-2">
+              <div class="forecast-date">${day}</div>
+              <img
+                src="https://api/weather/icons/few-clouds-day.png"
+                alt="#"
+                width="30"
+              />
+              <div class="forecast-temperature">
+                <span class="forecast-temperature-max">70°</span>
+                <span class="forecast-temperature-min">36°</span>
+              </div>
+            
+          </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
 
 function displayGeolocation(event) {
   event.preventDefault;
@@ -129,6 +158,7 @@ let button = document.querySelector("#geolocation");
 button.addEventListener("click", displayGeolocation);
 
 search("Seattle");
+displayForecast();
 
 // below is in forecast data:
 //  let highLow = document.querySelector("#highLow");
