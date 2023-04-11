@@ -8,6 +8,13 @@ function handleSubmit(event) {
   let cityInputElement = document.querySelector("#city-input");
   search(cityInputElement.value);
 }
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "c33d4a80d9533a8t8944b0aef1f6cbo2";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lat=${coordinates.latitude}&lon=${coordinates.longitude}&key=${apiKey}&units=imperial`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
 
 function displayTemperature(response) {
   let cityElement = document.querySelector("#city");
@@ -39,6 +46,8 @@ function displayTemperature(response) {
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
   iconElement.setAttribute("alt", response.data.condition.description);
+
+  getForecast(response.data.coordinates);
 }
 
 function displayCelsiusTemperature(event) {
@@ -63,13 +72,14 @@ function displayLocation(position) {
   let url = `https://api.shecodes.io/weather/v1/current?lon=${longitude}&lat=${latitude}&key=${apiKey}&units=imperial`;
   axios.get(url).then(displayTemperature);
 }
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class = "row">`;
 
   let days = ["Thursday", "Friday", "Saturday", "Sunday", "Monday"];
-  
+
   days.forEach(function (day) {
     forecastHTML =
       forecastHTML +
@@ -158,7 +168,6 @@ let button = document.querySelector("#geolocation");
 button.addEventListener("click", displayGeolocation);
 
 search("Seattle");
-displayForecast();
 
 // below is in forecast data:
 //  let highLow = document.querySelector("#highLow");
