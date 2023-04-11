@@ -119,3 +119,18 @@ h2 {
   padding-bottom: 10px;
   text-transform: capitalize;
 }
+
+.weather-forecast {
+  margin-top: 20px;
+  text-align: center;
+}
+.forecast-date {
+  font-size: 12px;
+  opacity: 0.6;
+}
+.forecast-temperature {
+  font-size: 10px;
+}
+.forecast-temperature-min {
+  opacity: 0.6;
+}
