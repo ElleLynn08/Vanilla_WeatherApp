@@ -4,7 +4,8 @@ body {
 }
 
 footer {
-  padding: 20px;
+  font-size: 13px;
+  padding-top: 30px;
   text-align: center;
 }
 h1 {
