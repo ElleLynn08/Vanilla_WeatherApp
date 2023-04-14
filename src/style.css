@@ -23,6 +23,9 @@ h2 {
   margin-bottom: 40px;
   text-align: center;
 }
+.timezone{
+  font-size: 12px;
+}
 
 .btn-primary {
   background: #08086b;
