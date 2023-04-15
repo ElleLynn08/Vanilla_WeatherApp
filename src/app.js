@@ -1,18 +1,3 @@
-//function displayTimezone(timestamp, offset) {
-//let apiKey = "c33d4a80d9533a8t8944b0aef1f6cbo2";
-//let latitude = timestamp.data.coordinates.latitude;
-//let longitude = timestamp.data.coordinates.longitude;
-//let city = timestamp.data.city;
-//let time = timestamp.data.temperature.time;
-//let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
-// let localDate = new Date();
-//let utc = localDate.getTime() + localDate.getTimezoneOffset() * 60000;
-//let zone = new Date(utc + 3600000 * offset);
-//let timezoneElement = document.querySelector("#timezone");
-// timezoneElement.innerHTML = `The local time in ${city} is ${time}`;
-//axios.get(apiUrl).then(displayTimezone);
-//}
-
 function displayTemperature(response) {
   let cityElement = document.querySelector("#city");
   cityElement.innerHTML = response.data.city;
