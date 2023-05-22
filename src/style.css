@@ -1,5 +1,5 @@
 body {
-  background-color: #5555ac;
+  background-color: #30307f;
   color: #ffffff;
 }
 
@@ -24,6 +24,8 @@ h2 {
   margin-top: 0;
   margin-bottom: 40px;
   text-align: center;
+  padding-bottom: 10px;
+  border-bottom: solid 1px;
 }
 .local-time {
   font-size: 12px;
@@ -63,6 +65,8 @@ h2 {
 .container {
   font-family: "Poppins", sans-serif;
   padding-top: 30px;
+  border-bottom: solid 1px;
+  padding-bottom: 10px;
 }
 .weather-app {
   background: linear-gradient(
