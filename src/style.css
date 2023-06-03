@@ -157,3 +157,9 @@ h2 {
   color: #43b6f0;
   font-size: 15px;
 }
+
+@media (max-width: 900px) {
+  body {
+    text-align: center;
+  }
+}
