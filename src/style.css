@@ -11,6 +11,7 @@ footer {
   text-align: center;
   margin-bottom: 0;
 }
+
 h1 {
   color: #ffffff;
   font-family: "Indie Flower", cursive;
@@ -141,4 +142,18 @@ h2 {
 }
 .forecast-temperature-min {
   opacity: 0.7;
+}
+
+.reference-links {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.reference-links:hover {
+  color: #43b6f0;
+}
+
+.stress-name {
+  color: #43b6f0;
+  font-size: 15px;
 }
